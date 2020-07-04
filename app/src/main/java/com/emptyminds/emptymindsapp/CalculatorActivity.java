@@ -7,25 +7,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CalculatorActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button btnAnswer;
     private EditText txtQuery;
     private TextView txtAnswer;
-    private Button btn0;
-    private Button btn1;
-    private Button btn2;
-    private Button btn3;
-    private Button btn4;
-    private Button btn5;
-    private Button btn6;
-    private Button btn7;
-    private Button btn8;
-    private Button btn9;
     private Double answer = 0.0;
     private Boolean isDirty = false;
     private String operator;
+    private long backPressedTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,26 +26,16 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
 
         btnAnswer = findViewById(R.id.btnEquals);
         btnAnswer.setOnClickListener(this);
-        btn0 = findViewById(R.id.btn0);
-        btn0.setOnClickListener(this);
-        btn1 = findViewById(R.id.btn1);
-        btn1.setOnClickListener(this);
-        btn2 = findViewById(R.id.btn2);
-        btn2.setOnClickListener(this);
-        btn3 = findViewById(R.id.btn3);
-        btn3.setOnClickListener(this);
-        btn4 = findViewById(R.id.btn4);
-        btn4.setOnClickListener(this);
-        btn5 = findViewById(R.id.btn5);
-        btn5.setOnClickListener(this);
-        btn6 = findViewById(R.id.btn6);
-        btn6.setOnClickListener(this);
-        btn7 = findViewById(R.id.btn7);
-        btn7.setOnClickListener(this);
-        btn8 = findViewById(R.id.btn8);
-        btn8.setOnClickListener(this);
-        btn9 = findViewById(R.id.btn9);
-        btn9.setOnClickListener(this);
+        findViewById(R.id.btn0).setOnClickListener(this);
+        findViewById(R.id.btn1).setOnClickListener(this);
+        findViewById(R.id.btn2).setOnClickListener(this);
+        findViewById(R.id.btn3).setOnClickListener(this);
+        findViewById(R.id.btn4).setOnClickListener(this);
+        findViewById(R.id.btn5).setOnClickListener(this);
+        findViewById(R.id.btn6).setOnClickListener(this);
+        findViewById(R.id.btn7).setOnClickListener(this);
+        findViewById(R.id.btn8).setOnClickListener(this);
+        findViewById(R.id.btn9).setOnClickListener(this);
 
         findViewById(R.id.btnClearAll).setOnClickListener(this);
         findViewById(R.id.btnDecimal).setOnClickListener(this);
@@ -153,4 +135,16 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
             txtAnswer.setText(strReplace.substring(0, strReplace.length() - 2).concat(operator + " "));
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            super.onBackPressed();
+            return;
+        } else {
+            Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT).show();
+        }
+        backPressedTime = System.currentTimeMillis();
+    }
+
 }
