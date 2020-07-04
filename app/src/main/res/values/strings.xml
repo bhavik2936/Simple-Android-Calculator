@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Empty Minds App</string>
+    <string name="app_name">Simple Calculator</string>
     <string name="username">bvk</string>
     <string name="password">1434</string>
     <string name="btnTextSize">20sp</string>
