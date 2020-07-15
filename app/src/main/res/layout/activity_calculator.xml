@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/txtQuery">
+        android:layout_above="@id/linerKeypad">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -24,25 +24,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginBottom="20dp"
-                android:padding="5dp"
                 android:textAlignment="textEnd"
                 android:textSize="15sp" />
         </ScrollView>
     </LinearLayout>
-
-    <EditText
-        android:id="@+id/txtQuery"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/linerKeypad"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginBottom="50dp"
-        android:hint="0.0"
-        android:inputType="numberDecimal"
-        android:maxLength="15"
-        android:padding="5dp"
-        android:textAlignment="textEnd"
-        android:textSize="20sp" />
 
     <LinearLayout
         android:id="@+id/linerKeypad"
@@ -51,6 +36,21 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/txtQuery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/linerKeypad"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="50dp"
+            android:hint="0.0"
+            android:inputType="numberDecimal"
+            android:maxLength="15"
+            android:padding="5dp"
+            android:textAlignment="textEnd"
+            android:textSize="20sp" />
+
 
         <LinearLayout
             android:id="@+id/linerTop"
